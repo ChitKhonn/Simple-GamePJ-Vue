@@ -1,6 +1,6 @@
 <template>
   
-<h1>How fast can you catch me?</h1>
+<h1>How fast can you catch me!!</h1>
 
 </template>
 
