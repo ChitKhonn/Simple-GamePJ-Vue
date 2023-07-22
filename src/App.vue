@@ -5,11 +5,16 @@
     <div v-if="isPlaying">
       <Block :delay="delay"  @endGame="endGame" />
     </div>
+    <div v-if="end">
+      <Result :score="score" />
+    </div>
   </div>
 </template>
  
 <script>
 import Block from "./components/Block.vue";
+import Result from "./components/Result.vue";
+
 
 export default {
   name: "App",
@@ -17,19 +22,24 @@ export default {
     return {
       isPlaying: false,
       delay: null,
+      score:0,
+      end:false
     };
   },
   methods: {
     start() {
       this.isPlaying = true;
-      this.delay = 2000 + Math.random() * 5000;
+      this.delay = 2000 + Math.random() * 5000; 
     },
     endGame(score){
-      console.log("Score is " +  score)
+      this.score = score,
+      this.isPlaying = false,
+      this.end = true
     }
   },
   components: {
     Block,
+    Result
   },
 };
 </script>
