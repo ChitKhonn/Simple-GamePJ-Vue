@@ -1,5 +1,5 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">Click Here {{ delay }}</div>
+  <div class="block" v-if="showBlock" @click="stopTimer()">Click Here {{ delay }}</div>
 </template>
 
 <script>
@@ -29,6 +29,7 @@ export default {
     },
     stopTimer(){
         clearInterval(this.timer())
+        console.log(this.score)
     }
   }
 };
