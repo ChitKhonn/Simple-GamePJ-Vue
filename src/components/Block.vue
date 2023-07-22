@@ -1,5 +1,10 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">Click Here {{ delay }}</div>
+  <div>
+    <div class="block" v-if="showBlock" @click="stopTimer">
+      Click Here {{ delay }}
+    </div>
+    
+  </div>
 </template>
 
 <script>
@@ -9,29 +14,28 @@ export default {
   data() {
     return {
       showBlock: false,
-      score:0,
-      timer:null,
+      score: 0,
+      timer: null,
     };
   },
 
-  mounted(){
+  mounted() {
     setTimeout(() => {
-        this.showBlock=true;
-        this.startTimer();
-        
+      this.showBlock = true;
+      this.startTimer();
     }, this.delay);
   },
-  methods:{
-    startTimer(){
-        this.timer = setInterval(() => {
-            this.score += 50;
-        }, 50);
+  methods: {
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.score += 50;
+      }, 50);
     },
-    stopTimer(){
-        clearInterval(this.timer)
-        console.log(this.score)
-    }
-  }
+    stopTimer() {
+      clearInterval(this.timer);
+      this.$emit("endGame",this.score);
+    },
+  },
 };
 </script>
 
