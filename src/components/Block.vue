@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="block" v-if="showBlock" @click="stopTimer">
-      Click Here {{ delay }}
+      Click Here
     </div>
     
   </div>
